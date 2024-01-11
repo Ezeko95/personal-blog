@@ -23,3 +23,14 @@ export const createPostController = async (post: IPost) => {
     console.error("Error creating post", error);
   }
 };
+
+export const getPostByIdController = async (id: number) => {
+  console.log(id);
+  try {
+    const post = await PostModel.findOne({ where: { id } });
+    console.log(post);
+    return post;
+  } catch (error) {
+    console.error("Error getting post", error);
+  }
+};
