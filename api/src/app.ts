@@ -20,6 +20,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, PATCH, OPTIONS"
   );
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
 
