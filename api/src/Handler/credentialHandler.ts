@@ -5,26 +5,31 @@ import {
 } from "../Controllers/credentialController";
 
 export const getCredentials = async (req: Request, res: Response) => {
-  const user = req.body;
-  console.log(user.username, user.password);
+  const admin = req.body;
   try {
-    if (!user.username || !user.password) {
+    if (!admin.username || !admin.password) {
       throw new Error("User and password are required");
     }
-    const newToken = await getAdminCredentials(user);
-    res.json(newToken);
-  } catch {
-    console.error("Error getting credentials");
-    res.send(500);
+
+    const newToken = await getAdminCredentials(admin);
+
+    if (newToken) {
+      res.json(newToken);
+    } else {
+      res.status(404).json({ error: "Admin not found" });
+    }
+  } catch (error) {
+    console.error("Error getting credentials", error);
+    res.sendStatus(500);
   }
 };
-
 export const createCredential = async (req: Request, res: Response) => {
+  const admin = req.body;
   try {
-    await createAdminCredential();
-    res.json("User created");
+    const newCredential = await createAdminCredential(admin);
+    res.json(newCredential);
   } catch {
     console.error("Error handler creating user");
-    res.send(500);
+    res.sendStatus(500);
   }
 };

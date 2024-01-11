@@ -1,12 +1,14 @@
 import { Sequelize } from "sequelize-typescript";
+import * as path from "path";
 
-const db = new Sequelize({
+const sequelize = new Sequelize({
+  database: "personal-blog",
   dialect: "postgres",
-  database: `${process.env.DB_NAME}`,
-  password: `${process.env.DB_PASSWORD}`,
   username: "postgres",
+  password: "admin",
   storage: ":memory:",
-  models: [__dirname + "/models"],
 });
 
-export default db;
+sequelize.addModels([path.join(__dirname, "./Models")]);
+
+export default sequelize;

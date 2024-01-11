@@ -16,7 +16,7 @@ import sequelize from "./src/db";
 import app from "./src/app";
 
 sequelize
-  .sync({ force: true })
+  .sync({ alter: true, force: true })
   .then(() => {
     app.listen(3001, () => {
       console.log("Wake up, Neo. The Matrix has you...");

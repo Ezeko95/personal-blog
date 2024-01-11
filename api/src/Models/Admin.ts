@@ -1,39 +1,12 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../db";
+import { Model, Table, Column } from "sequelize-typescript";
 
-class Admin extends Model {
-  public id!: number;
-  public username!: string;
-  public password!: string;
+@Table({ tableName: "Admins", timestamps: true })
+export class Admin extends Model<Admin> {
+  @Column({ allowNull: false, unique: true })
+  username!: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  @Column({ allowNull: false, unique: true })
+  password!: string;
 }
-
-Admin.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false,
-      unique: true,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    sequelize,
-    modelName: "Admin",
-    tableName: "admins",
-  }
-);
 
 export default Admin;

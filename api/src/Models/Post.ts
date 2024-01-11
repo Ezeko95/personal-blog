@@ -1,29 +1,21 @@
-import {
-  Column,
-  Table,
-  Model,
-  CreatedAt,
-  ForeignKey,
-  BelongsTo,
-} from "sequelize-typescript";
-import { Admin } from "./Admin";
+import { Model, Table, Column } from "sequelize-typescript";
 
-@Table
+@Table({ tableName: "Posts", timestamps: true })
 export class Post extends Model<Post> {
+  @Column({ primaryKey: true, autoIncrement: true })
+  id!: number;
+
   @Column({ allowNull: false })
   title!: string;
 
   @Column({ allowNull: false })
   content!: string;
 
-  @CreatedAt
   @Column({ allowNull: false })
-  createdAt!: Date;
+  image!: string;
 
-  @ForeignKey(() => Admin)
-  @Column
-  email!: string;
-
-  @BelongsTo(() => Admin)
-  admin!: Admin;
+  @Column({ allowNull: true, defaultValue: "Uncategorized" })
+  category!: string;
 }
+
+export default Post;
