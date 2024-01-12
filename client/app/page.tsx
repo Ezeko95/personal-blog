@@ -1,5 +1,11 @@
 import Auth from "./auth/page";
 
-export default function Home() {
-  return <Auth />;
-}
+const App = () => {
+  return (
+    <>
+      <Auth />
+    </>
+  );
+};
+
+export default App;

@@ -3,7 +3,7 @@ import { Post as PostModel } from "../Models/Post";
 interface IPost extends PostModel {
   title: string;
   content: string;
-  image: string;
+  image: Buffer;
   category: string;
 }
 

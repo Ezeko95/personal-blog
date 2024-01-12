@@ -1,4 +1,5 @@
-import { Model, Table, Column } from "sequelize-typescript";
+import { Model, Table, Column, DataType } from "sequelize-typescript";
+
 
 @Table({ tableName: "Posts", timestamps: true })
 export class Post extends Model<Post> {
@@ -11,8 +12,8 @@ export class Post extends Model<Post> {
   @Column({ allowNull: false })
   content!: string;
 
-  @Column({ allowNull: false })
-  image!: string;
+  @Column({ type: DataType.BLOB, allowNull: false })
+  image!: Buffer;
 
   @Column({ allowNull: true, defaultValue: "Uncategorized" })
   category!: string;

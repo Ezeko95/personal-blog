@@ -1,12 +1,14 @@
 "use client";
-import { funnyCharactersMap } from "./util";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 import Yay from "./Yay";
 import Nay from "./Nay";
 
 const Auth: React.FC = () => {
   const [showYay, setShowYay] = useState(false);
   const [showNay, setShowNay] = useState(false);
+  const router = useRouter();
   const [authForm, setAuthForm] = useState({
     username: "",
     password: "",
@@ -19,17 +21,15 @@ const Auth: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3001/auth/credential", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(authForm),
+      const res = await axios.post("http://localhost:3001/auth/credential", {
+        username: authForm.username,
+        password: authForm.password,
       });
-      if (res.ok) {
+      if (res.status) {
         setShowYay(true);
         setTimeout(() => {
           setShowYay(false);
+          router.push("/home");
         }, 2000);
       } else {
         setAuthForm({ username: "😡😡😡😡😡😡", password: "" });
@@ -73,6 +73,7 @@ const Auth: React.FC = () => {
 
         <button
           type="submit"
+          onClick={() => handleChange}
           className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ">
           Login
         </button>
