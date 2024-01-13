@@ -1,5 +1,5 @@
 import Card from "./Card";
 import Footer from "./Footer";
 import Header from "./Header";
-
-export { Card, Footer, Header };
+import NavBar from "./NavBar";
+export { Card, Footer, Header, NavBar };

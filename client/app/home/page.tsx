@@ -1,10 +1,10 @@
-import { Header, Card, Footer } from "../components/index";
+import { Header, Card, Footer, NavBar } from "../components/index";
 
 const Home = () => {
   return (
     <div>
+      <NavBar />
       <Header />
-      {/* <h1>Home</h1> */}
       <Card />
       <Footer />
     </div>
