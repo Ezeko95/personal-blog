@@ -1,6 +1,5 @@
 import { Model, Table, Column, DataType } from "sequelize-typescript";
 
-
 @Table({ tableName: "Posts", timestamps: true })
 export class Post extends Model<Post> {
   @Column({ primaryKey: true, autoIncrement: true })
@@ -9,11 +8,11 @@ export class Post extends Model<Post> {
   @Column({ allowNull: false })
   title!: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataType.TEXT })
   content!: string;
 
-  @Column({ type: DataType.BLOB, allowNull: false })
-  image!: Buffer;
+  @Column({ allowNull: false })
+  image!: string;
 
   @Column({ allowNull: true, defaultValue: "Uncategorized" })
   category!: string;

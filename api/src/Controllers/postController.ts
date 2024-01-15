@@ -3,15 +3,16 @@ import { Post as PostModel } from "../Models/Post";
 interface IPost extends PostModel {
   title: string;
   content: string;
-  image: Buffer;
+  image: string;
   category: string;
 }
 
 export const getAllPosts = async () => {
   try {
-    return await PostModel.findAll();
+    const posts = await PostModel.findAll();
+    return posts;
   } catch (error) {
-    console.error("Error getting post", error);
+    console.error("Error controller getting post", error);
   }
 };
 
@@ -25,12 +26,19 @@ export const createPostController = async (post: IPost) => {
 };
 
 export const getPostByIdController = async (id: number) => {
-  console.log(id);
   try {
     const post = await PostModel.findOne({ where: { id } });
-    console.log(post);
     return post;
   } catch (error) {
     console.error("Error getting post", error);
+  }
+};
+
+export const deletePostController = async (id: number) => {
+  try {
+    await PostModel.destroy({ where: { id } });
+    return id;
+  } catch (error) {
+    console.error("Error deleting post", error);
   }
 };

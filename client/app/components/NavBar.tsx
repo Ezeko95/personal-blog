@@ -3,14 +3,11 @@
 import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
-
 const NavBar: React.FC = () => {
   return (
-    <nav className="sticky flex items-center justify-between bg-gray-800 p-4">
-      <div className="flex items-center">
+    <nav className="fixed top-0  z-10 w-screen flex items-center justify-between bg-gray-800 p-4">
         {/* Logo */}
         <img src="/logo.png" alt="Logo" className="h-10 w-10" />
-      </div>
       <div className="flex items-center space-x-4">
         {/* Navlinks */}
         <a href="/" className="text-white hover:text-gray-300">

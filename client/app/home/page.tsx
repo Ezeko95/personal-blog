@@ -1,13 +1,14 @@
-import { Header, Card, Footer, NavBar } from "../components/index";
+import { Header, Footer } from "../components/index";
+import Card from "./Card";
 
 const Home = () => {
+  const cardClasses = "w-screen h-fit my-10";
   return (
-    <div>
-      <NavBar />
+    <>
       <Header />
-      <Card />
+      <Card cardClasses={cardClasses} />
       <Footer />
-    </div>
+    </>
   );
 };
 

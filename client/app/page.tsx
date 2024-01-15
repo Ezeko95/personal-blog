@@ -1,9 +1,9 @@
-import Auth from "./auth/page";
+import Home from "./home/page";
 
 const App = () => {
   return (
     <>
-      <Auth />
+      <Home />
     </>
   );
 };
