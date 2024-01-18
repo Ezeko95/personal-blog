@@ -11,6 +11,9 @@ export class Post extends Model<Post> {
   @Column({ allowNull: false, type: DataType.TEXT })
   content!: string;
 
+  @Column({ allowNull: false, type: DataType.TEXT })
+  summary!: string;
+
   @Column({ allowNull: false })
   image!: string;
 

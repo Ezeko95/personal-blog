@@ -4,19 +4,19 @@ import Link from "next/link";
 const Header = () => {
   // scroll to card section
   const scrollTo = () => {
-    const cardSection = document.getElementById("cardSection");
+    const cardSection = document.getElementById("cardContainer");
     cardSection?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="h-screen">
+    <div className="h-screen w-screen">
       <div
         className="flex flex-col items-center justify-center text-white gap-32 h-full bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/background2-.jpg')",
           backgroundSize: "100% auto",
         }}>
-        <h1 className="text-5xl">Gianluca Blog</h1>
-        <h3>
+        <h1 className="text-5xl font-semibold">{`Gianluca's Blog`}</h1>
+        <h3 className="text-4xl font-light">
           Learn about the impact technology has psychological on individuals,
           and more.
         </h3>

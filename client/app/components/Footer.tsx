@@ -3,8 +3,8 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-grisCustom dark:bg-gray-900">
-      <div className="mx-auto w-screen max-w-screen-2xl p-4 py-6 lg:py-8">
+    <footer className="w-screen bg-grisCustom dark:bg-gray-900">
+      <div className="mx-auto max-w-screen-2xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a className="flex items-center">
@@ -44,13 +44,22 @@ const Footer: React.FC = () => {
                     Linkedin
                   </a>
                 </li>
-                <li>
+                <li className="mb-4">
                   <a
                     href="https://github.com/Ezeko95"
                     className="hover:underline"
                     target="_blank"
                     rel="noopener noreferrer">
                     Github
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://gianluca-cianchi-nine.vercel.app/"
+                    className="hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Portfolio
                   </a>
                 </li>
               </ul>

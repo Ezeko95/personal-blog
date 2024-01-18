@@ -16,6 +16,9 @@ const config: Config = {
       colors: {
         grisCustom: "rgb(226, 217, 200)",
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+      },
     },
   },
   plugins: [],

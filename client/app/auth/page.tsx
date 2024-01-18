@@ -27,9 +27,10 @@ const Auth: React.FC = () => {
       });
       if (res.status) {
         setShowYay(true);
+
         setTimeout(() => {
           setShowYay(false);
-          router.push("/home");
+          router.push("/admin");
         }, 2000);
       } else {
         setAuthForm({ username: "😡😡😡😡😡😡", password: "" });

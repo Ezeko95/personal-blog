@@ -5,7 +5,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const NavBar: React.FC = () => {
   return (
-    <nav className="fixed top-0  z-10 w-screen flex items-center justify-between bg-gray-800 p-4">
+    <nav className="fixed top-0 z-10 w-screen mx-auto flex items-center justify-between bg-gray-800 py-4">
         {/* Logo */}
         <img src="/logo.png" alt="Logo" className="h-10 w-10" />
       <div className="flex items-center space-x-4">
