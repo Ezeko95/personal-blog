@@ -36,7 +36,9 @@ const Post = ({ params }: { params: { postId: string } }) => {
           </div>
         </div>
       ) : (
-        <p>loading...</p>
+        <div className="h-screen">
+          <p>loading...</p>
+        </div>
       )}
     </div>
   );
