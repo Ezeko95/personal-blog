@@ -42,12 +42,7 @@ const CreatePost = () => {
           onChange={handleChange}
         />
         <label htmlFor="content">Content</label>
-        <textarea
-          type="textarea"
-          name="content"
-          value={post.content}
-          onChange={handleChange}
-        />
+        <textarea name="content" value={post.content} onChange={handleChange} />
         <label htmlFor="description">Description</label>
         <input
           type="textarea"

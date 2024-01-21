@@ -5,7 +5,7 @@ import axios from "axios";
 
 const App = () => {
   const [cardData, setCardData] = useState<any>(null);
-
+  console.log(cardData);
   useEffect(() => {
     const fetchData = async () => {
       try {
